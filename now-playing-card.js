@@ -15,63 +15,55 @@ class NowPlayingPoster extends HTMLElement {
 	  
     }
 
-		
+	const offposter = this.config.off_image;		
     const entityId = this.config.entity;
 	const state = hass.states[entityId];	
 	const stateStr = state ? state.state : 'unavailable';
 	
-	if (state) {
-		
+	
+	
+	if (state) {		
+	
+		const movposter = state.attributes.entity_picture;	
+	
 		if (stateStr == "playing") {
-		
-		
-			const movposter = state.attributes.entity_picture;	
-			const offposter = this.config.off_image;
-
-			
-			
-			if ( !movposter ) {
-			
-				if ( offposter ) {
-				
+			if ( !movposter ) {			
+				if ( offposter ) {				
 					this.content.innerHTML = `
 					<!-- now playing card ${entityId} -->
 					<img src="${offposter}" width=100% align="center" style="">
-					`;		
-				
+					`;						
 				} 		
 				else			
 				{		
-
 					this.content.innerHTML = `		
 					<!-- now playing card ${entityId}  no image-->			
-					`;
-				
+					`;				
 				}
-				
-				
-				
-				
 			} 	
 			else		
 			{
-			
-				
 			this.content.innerHTML = `		
 			<!-- now playing card ${entityId}  -->
 			<img src="${movposter}" width=100% height=100%">	  
-			`;
-			
+			`;			
 			}
-
-
 		} 	
 		else		
 		{		
 			
-		this.content.innerHTML = `		
-		<!-- now playing card ${entityId} requires entity_picture--> 
-		`;
+			if ( offposter ) {				
+				this.content.innerHTML = `
+				<!-- now playing card ${entityId} -->
+				<img src="${offposter}" width=100% align="center" style="">
+				`;						
+			} 		
+			else			
+			{		
+				this.content.innerHTML = `		
+				<!-- now playing card ${entityId}  no image-->			
+				`;				
+			}			
 		
 		}
 
