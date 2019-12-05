@@ -1,0 +1,195 @@
+<html>
+<head>
+<style>
+
+
+
+.demo2 {
+	z-index: 33;	
+	position: fixed;	
+	top: 0;
+	right: 0;	
+	width: 100%;	
+}
+
+.demo {
+	z-index: 33;	
+	position: absolute;		
+	top: 0;
+	right: 0;
+	width: 100%;	
+}
+
+
+.idem {
+	position: fixed;
+	z-index: 35;
+}
+
+
+
+.frontdiv{
+	z-index: 50;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;	
+}
+
+.toolbox {
+	border: 3px solid #FF0000;
+	border-radius:  10px;
+	background: rgba(0,0,0,.5);
+	box-shadow: 8px 8px 6px 1px rgba(0, 0, 0, .6); 
+}
+
+.toolbox td, th{
+	font-family: tahoma;
+	color: white;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.toolbox th{
+	background: #660000;	
+}
+
+.toolbox th a{
+	text-decoration: none;
+	font-size: 20pt;
+	color: #ffffff;
+}
+.ssizer {
+	opacity: 0;
+}
+body {
+	background: #220000;	
+}
+</style>
+
+
+<script>
+
+function DoSkew(){
+	var rT = document.getElementById("rT").value;
+	var rX = document.getElementById("rX").value;
+	var rY = document.getElementById("rY").value;
+	var sX = document.getElementById("sX").value;
+	var sY = document.getElementById("sY").value;
+	
+	var sW = document.getElementById("sW").value;
+	var MT = document.getElementById("MT").value;
+	var ML = document.getElementById("ML").value;	
+	
+	var imgURL = document.getElementById("iURL").value;
+	var bmgURL = document.getElementById("bURL").value;
+	
+	var OutVal = "";
+	
+	if (rT != 0){ rTv = 'rotate(' + rT + 'deg) ';} else { rTv = '';}
+	if (rX != 0){ rXv = 'rotateX(' + rX + 'deg) ';} else { rXv = '';}
+	if (rY != 0){ rYv = 'rotateY(' + rY + 'deg) ';} else { rYv = '';}
+	if (sX != 0){ sXv = 'skewX(' + sX + 'deg) ';} else { sXv = '';}
+	if (sY != 0){ sYv = 'skewY(' + sY + 'deg) ';} else { sYv = '';}
+	
+	if (sW != 0){ 
+		sWv = 'width="' + sW + '%" ';
+		OutVal = OutVal + 'width: ' + sW + '%\n';
+	} else { sWv = '';}
+	
+	if (MT != 0){
+		MTv = 'translateY(' + MT + '%) ';
+		OutVal = OutVal + 'top: ' + MT + '%\n';
+	} else { MTv = '';}
+	
+	if (ML != 0){ 
+		MLv = 'translateX(' + ML + '%) ';
+		OutVal = OutVal + 'left: ' + ML + '%\n';
+	} else { MLv = '';}
+
+	
+	var DemoVal = rTv + rXv + rYv + sXv + sYv;
+	var DemoVal2 = MTv + MLv ;
+ 
+  
+	document.getElementById("demo2").innerHTML = '<img src="' + bmgURL + '" width=100%><div class="demo" id="demo"><img class="idem" id="idem" ' + sWv + 'src="' + imgURL + '"><img src="' + bmgURL + '" class="ssizer" width=100%></div>';
+	
+	
+	document.getElementById("idem").style.transform = DemoVal;
+	document.getElementById("demo").style.transform = DemoVal2;
+	
+	OutVal = OutVal + 'transform: ' + DemoVal + '\n';
+	document.getElementById("DVal").value = OutVal;
+
+	
+ }
+ 
+ function moveit(mdr){
+	if (mdr == 'l') {
+		document.getElementById("tbox").align = 'left';
+		document.getElementById("mvr").innerHTML = '<a href="#" title="move right" onclick="moveit(\'r\');">👉</a>';
+	} else {
+		document.getElementById("tbox").align = 'right';
+		document.getElementById("mvr").innerHTML = '<a href="#" title="move left" onclick="moveit(\'l\');">👈</a>';
+	}
+ 
+ }
+ 
+</script>
+
+</head>
+<body>
+
+<table width=100%>
+<tr><td class="demo2" id="demo2"><img src="house.jpg" width=100%>
+<div class="demo" id="demo"><img src="movie.gif" id="idem"></div>
+</td></tr>
+</table>
+
+
+
+
+
+
+
+<table class="frontdiv" width=100% height=100%>
+<tr><td id="tbox" valign="bottom">
+<form>
+<table class="toolbox">
+<tr><th id="mvr"><a href="#" title="move right" onclick="moveit('r');">👉</a></th></tr>
+</table>
+<p>
+<table class="toolbox">
+<tr><th colspan=2>adjust</th></tr>
+<tr><td>Width:</td><td><input type="number" id="sW" min=1 max=200 value="10" oninput="DoSkew()"> %</td></tr>
+<tr><td>Top:</td><td><input type="number" id="MT" min=-100 max=100 value="20" oninput="DoSkew()"> %</td></tr>
+<tr><td>Left:</td><td><input type="number" id="ML" min=-100 max=100 value="45" oninput="DoSkew()"> %</td></tr>
+<tr><td>ROTATE:</td><td><input type="number" id="rT" min=-359 max=359 value="0" oninput="DoSkew()"></td></tr>
+<tr><td>ROTATE X:</td><td><input type="number" id="rX" min=-359 max=359 value="0" oninput="DoSkew()"></td></tr>
+<tr><td>ROTATE Y:</td><td><input type="number" id="rY" min=-359 max=359 value="0" oninput="DoSkew()"></td></tr>
+<tr><td>SKEW X:</td><td><input type="number" id="sX" min=-100 max=100 value="0" oninput="DoSkew()"></td></tr>
+<tr><td>SKEW Y:</td><td><input type="number" id="sY" min=-100 max=100 value="0" oninput="DoSkew()"></td></tr>
+</table>
+<p>
+<table class="toolbox">
+<tr><th colspan=2>images</th></tr>
+<tr><td>background:</td><td><input type="text" id="bURL" value="back.jpg" size=10 oninput="DoSkew()"></td></tr>
+<tr><td>test image:</td><td><input type="text" id="iURL" value="roku.png" size=10 oninput="DoSkew()"></td></tr>
+</table>
+<p>
+<table class="toolbox">
+<tr><th colspan=2>output</th></tr>
+<tr><td colspan=2><textarea id="DVal" cols=60 rows=5></textarea></td></tr>
+</table>
+
+</td></tr></table>
+</form>
+
+
+</body>
+<script>
+	DoSkew();
+</script>
+</html>
+
