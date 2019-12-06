@@ -1,13 +1,9 @@
 
 # now-playing-card
 
-This is a **beta version** and not yet ready for release.  
-
-
 Custom card for [Home Assistant](https://www.home-assistant.io/) to display a poster of the currently playing item in designated media_player.
 
-
-This works with those media_player entities supporting the entity_picture attribute.   Roku, Kodi, and Amazon Echo Dot seem to work well for me.
+This works with those media_player entities supporting the entity_picture attribute.   Roku, Kodi, and Amazon Echo Dot all seem to work well for me.
 
 
 ------------
@@ -53,3 +49,8 @@ Installation is the same as any custom card.
             - url: /local/js/now-playing-card.js
               type: js
 
+
+
+Once the card is copied and referenced, you can just add the entry as listed above.   
+
+Most likely you'll also want to move the image around your floorplan.  This can be accomplished with CSS.  A tool has been included to help figure out the skew and rotate values, it's not necessary to use this tool, but hopefully it makes things easier.  To use the tool just open rotate.html from the Design Tool folder, and then copy your floorplan image and media image to the folder, or enter a valid URL for those images.
