@@ -3,7 +3,7 @@
 
 Custom card for [Home Assistant](https://www.home-assistant.io/) to display a poster of the currently playing item in designated media_player.
 
-[demo youtube video](https://youtu.be/1ZU4WMgwU6s)
+#### Demo: [Youtube video](https://youtu.be/1ZU4WMgwU6s)
 
 This works with those media_player entities supporting the entity_picture attribute.   Roku, Kodi, and Amazon Echo Dot all seem to work well for me.
 
@@ -11,8 +11,10 @@ The card is stackable, so you can position cards from several media players in t
 
 The card only shows the entity_picture while the status is playing.  This is because some roku players and echo dots will show images even when not actively playing media content.  It should be easy to edit this function out if you don't want it.
 
-Known issues:  transform is highly dependent on the image size, so if you attempt to display an image of a different size (this can happen in kodi) the transform will not work correctly and the image will look weird or in the wrong place. 
+#### Known issues: 
+Transform is highly dependent on the image size, so if you attempt to display an image of a different size (this can happen in kodi) the transform will not work correctly and the image will look weird or in the wrong place. 
 
+If you use an old browser that doesn't display transform css properly, transform just won't work.
 
 ------------
 
