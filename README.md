@@ -3,6 +3,8 @@
 
 Custom card for [Home Assistant](https://www.home-assistant.io/) to display a poster of the currently playing item in designated media_player.
 
+[demo youtube video](https://youtu.be/1ZU4WMgwU6s)
+
 This works with those media_player entities supporting the entity_picture attribute.   Roku, Kodi, and Amazon Echo Dot all seem to work well for me.
 
 The card is stackable, so you can position cards from several media players in the same spot to show whichever one is playing.
