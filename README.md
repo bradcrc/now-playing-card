@@ -19,7 +19,7 @@ Entity id
 #### off_image
 (string)(optional)
 
-Optional Image to display when idle.  This must be the same size as the media image if using scaling.
+Optional Image to display when idle.  This must be the same size as the media image if using transform.
 
 
 
