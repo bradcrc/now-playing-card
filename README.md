@@ -31,7 +31,12 @@ Optional Image to display when idle.  This must be the same size as the media im
 
           - type: "custom:now-playing-poster"
             entity: media_player.dot_lr  
-              
+			style:
+              width: 10%
+              top: 20%
+              left: 9%
+              transform: rotate(-76deg) rotateX(-57deg) skewX(-25deg)              
+                      
               
 
               
