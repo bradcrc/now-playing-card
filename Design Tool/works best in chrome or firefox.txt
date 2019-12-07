@@ -1,0 +1,3 @@
+this tool works best in chrome or firefox.
+ 
+Other browsers may not work as well or at all due to funky css incompatibilities.
