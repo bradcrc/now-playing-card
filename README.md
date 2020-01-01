@@ -1,4 +1,4 @@
-
+![title](nowplaying.jpg)
 # now-playing-card
 
 Custom card for [Home Assistant](https://www.home-assistant.io/) to display a poster of the currently playing item in designated media_player.
