@@ -1,6 +1,10 @@
 ![title](nowplaying.jpg)
 # now-playing-card
 
+
+**PLEASE NOTE:  HA 110 Breaks this card.  It is currently only working with versions before .110 !!!**
+
+
 Custom card for [Home Assistant](https://www.home-assistant.io/) to display a poster of the currently playing item in designated media_player.
 
 #### Demo: [Youtube video](https://youtu.be/1ZU4WMgwU6s)
