@@ -2,7 +2,8 @@
 # now-playing-card
 
 
-**PLEASE NOTE:  HA 110 Breaks this card.  It is currently only working with versions before .110 !!!**
+
+**PLEASE NOTE: The HASS 110 update to Picture Elements card breaks this and other custom cards.  It is currently only working in picture elements versions prior to .110 !!!   This card still works fine outside of picture elements as a standalone custom card.**
 
 
 Custom card for [Home Assistant](https://www.home-assistant.io/) to display a poster of the currently playing item in designated media_player.
