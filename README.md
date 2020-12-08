@@ -59,11 +59,11 @@ Installation is the same as any custom card.
 
 1. Copy the file [now-playing-card.js](https://github.com/bradcrc/Now-Playing-Card) to your /config/www/js/ directory
 
-2. Add the following to the resources area of your ui-lovelace.yaml
+2. Add the following to the resources area of your ui-lovelace.yaml (or add to resources on the lovelace dashboard)
 
 
             - url: /local/js/now-playing-card.js
-              type: js
+              type: module
 
 
 
