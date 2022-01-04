@@ -43,10 +43,14 @@ class NowPlayingPoster extends HTMLElement {
 			}
 			else
 			{
-			this.content.innerHTML = `
-			<!-- now playing card ${entityId}  -->
-			<img src="${movposter}" width=100% height=100%">
-			`;
+				const img = new Image();
+				img.onload = () => {
+					this.content.innerHTML = `
+					<!-- now playing card ${entityId}  -->
+					<img src="${movposter}" width=100% height=100%">
+					`;
+				};
+				img['src']= movposter
 			}
 		}
 		else
