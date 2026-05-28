@@ -90,42 +90,68 @@ function DoSkew(){
 	
 	var imgURL = document.getElementById("iURL").value;
 	var bmgURL = document.getElementById("bURL").value;
+
+
+
+
+	// Compute Values
 	
-	var OutVal = "";
-	
+	var OutVal = "";	
 	if (rT != 0){ rTv = 'rotate(' + rT + 'deg) ';} else { rTv = '';}
 	if (rX != 0){ rXv = 'rotateX(' + rX + 'deg) ';} else { rXv = '';}
 	if (rY != 0){ rYv = 'rotateY(' + rY + 'deg) ';} else { rYv = '';}
 	if (sX != 0){ sXv = 'skewX(' + sX + 'deg) ';} else { sXv = '';}
 	if (sY != 0){ sYv = 'skewY(' + sY + 'deg) ';} else { sYv = '';}
+
+	var DemoVal = rTv + rXv + rYv + sXv + sYv;
+
+	//If no transform, Use different origin
 	
-	if (sW != 0){ 
+	var MLfx = ML;
+	var MTfx = MT;
+	
+	if (DemoVal.length > 0){
+
+		//alert("hi there");
+	
+	} else {
+	var Ewd = document.getElementById("idem").getBoundingClientRect().width;
+	var Eht = document.getElementById("idem").getBoundingClientRect().height;
+	var Wwd = document.getElementById("demo").getBoundingClientRect().width;
+	var Wht = document.getElementById("demo").getBoundingClientRect().height;
+	var IHp = ((((Eht)/Wht) *100)/2);
+	var IWp = ((((Ewd)/Wwd) *100)/2);
+	MLfx = (parseFloat(ML) + IWp);
+	MTfx = (parseFloat(MT) + IHp);	
+	}
+	
+	
+	if (sW != 0){ 		
 		sWv = 'width="' + sW + '%" ';
 		OutVal = OutVal + 'width: ' + sW + '%\n';
 	} else { sWv = '';}
 	
 	if (MT != 0){
+
 		MTv = 'translateY(' + MT + '%) ';
-		OutVal = OutVal + 'top: ' + MT + '%\n';
+		OutVal = OutVal + 'top: ' + MTfx + '%\n';
 	} else { MTv = '';}
 	
-	if (ML != 0){ 
+	if (ML != 0){
+		
 		MLv = 'translateX(' + ML + '%) ';
-		OutVal = OutVal + 'left: ' + ML + '%\n';
+		OutVal = OutVal + 'left: ' + MLfx + '%\n';
 	} else { MLv = '';}
 
-	
-	var DemoVal = rTv + rXv + rYv + sXv + sYv;
+
 	var DemoVal2 = MTv + MLv ;
- 
-  
+	if (DemoVal.length > 0){OutVal = OutVal + 'transform: ' + DemoVal + '\n';}; 
+
+	
 	document.getElementById("demo2").innerHTML = '<img src="' + bmgURL + '" width=100%><div class="demo" id="demo"><img class="idem" id="idem" ' + sWv + 'src="' + imgURL + '"><img src="' + bmgURL + '" class="ssizer" width=100%></div>';
 	
-	
 	document.getElementById("idem").style.transform = DemoVal;
-	document.getElementById("demo").style.transform = DemoVal2;
-	
-	OutVal = OutVal + 'transform: ' + DemoVal + '\n';
+	document.getElementById("demo").style.transform = DemoVal2;		
 	document.getElementById("DVal").value = OutVal;
 
 	
@@ -180,8 +206,8 @@ function DoSkew(){
 <p>
 <table class="toolbox">
 <tr><th colspan=2>images</th></tr>
-<tr><td>Test image:</td><td><input type="text" id="iURL" value="roku.png" size=10 oninput="DoSkew()"></td></tr>
-<tr><td>Background:</td><td><input type="text" id="bURL" value="back.jpg" size=10 oninput="DoSkew()"></td></tr>
+<tr><td>Test image:</td><td><input type="text" id="iURL" value="ON.png" size=10 oninput="DoSkew()"></td></tr>
+<tr><td>Background:</td><td><input type="text" id="bURL" value="summer.jpg" size=10 oninput="DoSkew()"></td></tr>
 </table>
 <p>
 <table class="toolbox">
@@ -198,4 +224,3 @@ function DoSkew(){
 	DoSkew();
 </script>
 </html>
-
